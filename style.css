@@ -1,0 +1,219 @@
+
+/* Design & thème */
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #382116;
+    background-color: #4b2516;
+
+    --bois-fonce: #4b2516;
+    --bois-moyen: #784326;
+    --bois-clair: #f6dfb8;
+    --papier: #fff4df;
+    --braise: #a83216;
+    --flamme: #e87518;
+    --message-fond: #ffebad;
+    --bordure: #c18a53;
+    --focus: #075fc7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+    line-height: 1.6;
+
+    /* Fond bois */
+    background-color: var(--bois-fonce);
+    background-image:
+        repeating-linear-gradient(
+            3deg,
+            transparent 0 25px,
+            rgb(255 255 255 / 3%) 26px 28px,
+            transparent 29px 48px
+        ),
+        linear-gradient(135deg, #60321d, #32170f);
+}
+
+.cache {
+    display: none;
+}
+
+/* Carte principale */
+
+main {
+    width: 100%;
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 1.25rem;
+
+    color: var(--bois-fonce);
+    background: linear-gradient(
+        135deg,
+        #fff4df,
+        #f3d6a8
+    );
+
+    border: 3px solid #d6a56b;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 30%);
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.3rem;
+}
+
+/* Zones de jeu */
+
+section {
+    margin-top: 1.5rem;
+    padding: 1rem;
+
+    background-color: var(--papier);
+    border: 2px solid var(--bordure);
+    border-radius: 0.75rem;
+    box-shadow: 0 3px 6px rgb(75 37 22 / 10%);
+}
+
+
+/* Champs et libellés */
+
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+
+input {
+    display: block;
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.65rem;
+
+    font: inherit;
+    color: var(--bois-fonce);
+    background-color: #fffdf8;
+
+    border: 2px solid #956642;
+    border-radius: 0.4rem;
+}
+
+input:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+}
+
+/* Boutons avec dégradé façon boîte d'allumettes */
+
+button {
+    display: block;
+    width: 100%;
+    min-height: 2.75rem;
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+
+    font: inherit;
+    font-weight: 700;
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        var(--flamme),
+        var(--braise)
+    );
+
+    border: 2px solid #842710;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 0 #64200e;
+
+    cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+    background: linear-gradient(
+        135deg,
+        #f18a32,
+        #8f2410
+    );
+}
+
+button:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #64200e;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Le bouton rejouer reste masqué tant que la partie n'est pas terminée */
+#btn-rejouer[hidden] {
+    display: none;
+}
+
+/* Focus clavier bien visible */
+button:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+}
+
+/* Message de jeu */
+
+#message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+
+    color: #492309;
+    background-color: var(--message-fond);
+
+    border: 2px solid #d49b25;
+    border-left: 6px solid var(--flamme);
+    border-radius: 0.5rem;
+
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* Responsive écran 768px */
+
+@media (min-width: 768px) {
+    body {
+        padding: 2rem;
+    }
+
+    main {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+}
+
+/* Responsive desktop 1024px */
+
+@media (min-width: 1024px) {
+    main {
+        max-width: 52rem;
+    }
+
+    body {
+        padding: 3rem;
+    }
+}

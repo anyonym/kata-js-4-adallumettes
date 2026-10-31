@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu des allumettes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <h1>Jeu des allumettes</h1>
+
+        <!-- ÉCRAN 1 : INITIALISATION -->
+        <section id="ecranInitialisation">
+            <h2>Préparer la partie</h2>
+
+            <label for="nombreJoueurs">Nombre de joueurs :</label>
+
+            <input
+                type="number"
+                id="nombreJoueurs"
+                min="2"
+                max="6"
+                step="1"
+                value="2"
+            >
+
+            <button id="demarrer">Démarrer la partie</button>
+
+            <p id="messageInitialisation" role="status"></p>
+        </section>
+
+        <!-- ÉCRAN 2 : PARTIE EN COURS -->
+        <section id="ecranJeu" class="cache">
+            <h2>🔥 Tout feu tout flamme 🧨</h2>
+
+            <p id="allumettesRestantes">
+                Allumettes restantes : 50
+            </p>
+
+            <p id="joueurActuel">Au tour du joueur 1</p>
+
+            <label for="retrait">
+                Nombre d'allumettes à retirer (1 à 6) :
+            </label>
+
+            <input
+                type="number"
+                id="retrait"
+                min="1"
+                max="6"
+            >
+
+            <button id="jouer">Retirer les allumettes</button>
+
+            <p id="message" role="status"></p>
+        </section>
+
+        <!-- BOUTON REJOUER -->
+        <button id="btn-rejouer" hidden>Rejouer</button>
+    </main>
+</body>
+</html>
